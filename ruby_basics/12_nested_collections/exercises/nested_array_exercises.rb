@@ -11,7 +11,7 @@ def blank_seating_chart(number_of_rows, seats_per_row)
 
   # NOTE: if one of the nested arrays is changed, the others should **not**
   # change with it
-  seating_chart = Array.new(number_of_rows) {Array.new(seats_per_row)}
+  Array.new(number_of_rows) { Array.new(seats_per_row) }
 end
 
 def add_seat_to_row(chart, row_index, seat_to_add)
@@ -45,7 +45,7 @@ end
 
 def count_empty_seats(chart)
   # take a chart and return the number of empty (nil) seats in it
-  chart.reduce(0) {|sum, row| sum + row.count(nil)}
+  chart.reduce(0) { |sum, row| sum + row.count(nil) }
   # NOTE: `chart` should **not** be mutated
 end
 
@@ -67,6 +67,5 @@ def find_favorite(array_of_hash_objects)
   array_of_hash_objects.each do |hash|
     return hash if hash[:is_my_favorite?]
   end
-  return nil
-
+  nil
 end
